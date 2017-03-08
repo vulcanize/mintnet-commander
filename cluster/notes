@@ -1,4 +1,6 @@
 aws kms create-key
 aws s3api --region=us-east-1 create-bucket --bucket ads-mintnet-s3bucket
+kube-aws render --s3-uri s3://ads-mintnet-s3bucket
 kube-aws validate --s3-uri s3://ads-mintnet-s3bucket
 kube-aws up --s3-uri s3://ads-mintnet-s3bucket
+kube-aws destroy

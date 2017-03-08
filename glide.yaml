@@ -1,0 +1,4 @@
+package: .
+import:
+- package: github.com/coreos/kube-aws
+  version: ^0.9.5-rc.2
