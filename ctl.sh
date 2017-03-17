@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-cmd=$1
+cmd=$1                                    # start, stop, or status
+S3BUCKET=s3://test-kops-ads-state-store/  # ???
+CLUSTERNAME=vulcanize.io                  # should be FQDN
 
 function which_cmd {
 	which $1 &> /dev/null
@@ -23,8 +25,8 @@ echo -e "kops Version: \c"
 kops version
 
 if test "$cmd" = "start"; then
-	kops create cluster --cloud=aws --zones=us-west-1c --name=vulcanize.io --state s3://test-kops-ads-state-store/
-	kops update cluster vulcanize.io --yes --state s3://test-kops-ads-state-store/
+	kops create cluster --cloud=aws --zones=us-west-1c --name=$CLUSTERNAME --state $S3BUCKET
+	kops update cluster $CLUSTERNAME --yes --state $S3BUCKET
 	let elapsed=0
 	let timeout=600
 	echo "Waiting for up to 10min for cluster to spin up..."
@@ -43,10 +45,10 @@ if test "$cmd" = "start"; then
 	kubectl run my-nginx --image=nginx --replicas=1 --port=80
 	kubectl expose deployment my-nginx --port=80 --type=LoadBalancer 
 elif test "$cmd" = "stop"; then
-	kops delete cluster --state s3://test-kops-ads-state-store/ --name vulcanize.io --yes
+	kops delete cluster --state $S3BUCKET --name $CLUSTERNAME --yes
 elif test "$cmd" = "status"; then
 	echo "---=== Clusters:"
-	kops get cluster --state s3://test-kops-ads-state-store/ &> tmp.log
+	kops get cluster --state $S3BUCKET &> tmp.log
 	if test "No clusters found" = "$(cat tmp.log)"; then
 		cat tmp.log
 	else
@@ -66,9 +68,9 @@ fi
 
 # kops get cluster
 
-# kops create cluster --cloud=aws --zones=us-west-1c --name=vulcanize.io --state s3://test-kops-ads-state-store/
-# kops edit cluster vulcanize.io
-# kops update cluster vulcanize.io --yes --state s3://test-kops-ads-state-store/
+# kops create cluster --cloud=aws --zones=us-west-1c --name=$CLUSTERNAME --state s3://test-kops-ads-state-store/
+# kops edit cluster $CLUSTERNAME
+# kops update cluster $CLUSTERNAME --yes --state s3://test-kops-ads-state-store/
 # ...
 # kubectl get nodes
 # kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
@@ -84,6 +86,6 @@ fi
 # ---
 # kubectl run my-ethermint --image=tendermint/ethermint --replicas=2 --port=22
 # ...
-# kops delete cluster --state s3://test-kops-ads-state-store/ --name vulcanize.io
+# kops delete cluster --state s3://test-kops-ads-state-store/ --name $CLUSTERNAME
 
 echo "exiting normally."
