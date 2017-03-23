@@ -12,3 +12,11 @@ Note: Initial setup will generate everyone as validators.
 ## Keys
   Etheremint needs private keys(same as Ethereum's keys) to participate in the newtork, the simple
 test keys currently are stored in `keystore/` directory with password `vulcan`.
+
+## Genesis
+  Ethermint needs two genesis files, one for `tendermint` and another for `ethereum`. Tendermint
+validator keys and genesis file are generated with pregenerate command. Whereas ethereum keys
+are already generated with password `vulcan` and are included in `eth-genesis.json`. This might
+get automatically generated in the future.
+  Also all ethereum keys are provided to every machine.
+
