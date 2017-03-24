@@ -20,3 +20,12 @@ are already generated with password `vulcan` and are included in `eth-genesis.js
 get automatically generated in the future.
   Also all ethereum keys are provided to every machine.
 
+## Commands
+  * `make generate` - It will generate `data/machine-${i}` directories as ROOT folders for
+the etheremint.
+  * `make clean` - will delete `data` directory
+  * `make docker` - will build docker machine in `$GOPATH/src/github.com/tendermint/ethermint`
+folder using ./environment/Dockerfile
+  * `make start` - will start 4 nodes by default on local docker machine with custom network. It
+assumes that data/machine-${i} directories are initialized.
+  * `make stop` - will delete all docker containers and the network
