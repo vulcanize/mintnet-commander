@@ -12,7 +12,13 @@ clean:
 	rm -rvf ${DATA_DIR}
 
 docker:
-	rm ${ETHERMINT}/Dockerfile.mintnet
+	if [ -f ${ETHERMINT}/Dockerfile.mintnet ]; then rm ${ETHERMINT}/Dockerfile.mintnet; fi
 	ln ./Dockerfile ${ETHERMINT}/Dockerfile.mintnet
 	cd ${ETHERMINT} && docker build -t ethermint:vulcan -f ./Dockerfile.mintnet .
 	rm ${ETHERMINT}/Dockerfile.mintnet
+
+start:
+	./scripts/local_testnet_start.sh ethermint:vulcan ethminttest $(MACHINE_COUNT)
+
+stop:
+	./scripts/local_testnet_stop.sh ethminttest $(MACHINE_COUNT)
