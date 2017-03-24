@@ -29,3 +29,5 @@ folder using ./environment/Dockerfile
   * `make start` - will start 4 nodes by default on local docker machine with custom network. It
 assumes that data/machine-${i} directories are initialized.
   * `make stop` - will delete all docker containers and the network
+
+Makefile accepts to env variables: MACHINE_COUNT and DATA_DIR
