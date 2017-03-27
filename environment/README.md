@@ -20,6 +20,10 @@ are already generated with password `vulcan` and are included in `eth-genesis.js
 get automatically generated in the future.
   Also all ethereum keys are provided to every machine.
 
+## Environment Variables
+  * `DATA_DIR` - Directory where data will be stored
+  * `MACHINE_COUNT` - Number of machines to run
+
 ## Commands
   * `make generate` - It will generate `data/machine-${id}` directories as ROOT folders for
 the etheremint.
