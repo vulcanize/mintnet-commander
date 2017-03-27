@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/vulcanize/mintnet-commander/issues"
   },
-  "homepage": "https://github.com/vulcanize/mintnet-commander#readme"
+  "homepage": "https://github.com/vulcanize/mintnet-commander#readme",
+  "devDependencies": {
+    "web3": "^0.18.2"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
 }

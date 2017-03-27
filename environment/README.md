@@ -21,13 +21,16 @@ get automatically generated in the future.
   Also all ethereum keys are provided to every machine.
 
 ## Commands
-  * `make generate` - It will generate `data/machine-${i}` directories as ROOT folders for
+  * `make generate` - It will generate `data/machine-${id}` directories as ROOT folders for
 the etheremint.
   * `make clean` - will delete `data` directory
   * `make docker` - will build docker machine in `$GOPATH/src/github.com/tendermint/ethermint`
 folder using ./environment/Dockerfile
   * `make start` - will start 4 nodes by default on local docker machine with custom network. It
-assumes that data/machine-${i} directories are initialized.
+assumes that data/machine-${id} directories are initialized.
   * `make stop` - will delete all docker containers and the network
 
-Makefile accepts to env variables: MACHINE_COUNT and DATA_DIR
+Makefile accepts to env variables: MACHINE_COUNT and DATA_DIR.
+
+Notes: `make start` will expose and bind ports 8545 to 400${id} at this point. Also this
+won't scale more than 99 machines. This limitation is temporary.

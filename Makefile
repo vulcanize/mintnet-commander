@@ -1,7 +1,7 @@
 GOTOOLS = \
 	github.com/Masterminds/glide
 
-.PHONY: default install bin_deps get_tools
+.PHONY: default install bin_deps get_tools test
 
 default:
 	@echo "Nothing to do by default"
@@ -16,3 +16,6 @@ bin_deps: install
 
 get_tools:
 	go get -u -v $(GOTOOLS)
+
+test:
+	./node_modules/mocha/bin/mocha
