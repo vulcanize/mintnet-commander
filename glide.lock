@@ -1,0 +1,10 @@
+hash: 0b8dc99171ddf99fdc2a1c3f32fa341852e8ca7343d14a9072c4135d6cbdcb41
+updated: 2017-03-23T18:18:01.216495714+04:00
+imports:
+- name: github.com/coreos/kube-aws
+  version: b6bb843aaaf12f62b898863b9b583f1fe746ce27
+- name: github.com/tendermint/ethermint
+  version: 9f23c3bdf72966a3dbec6b2f70135e772a27c341
+- name: github.com/tendermint/tendermint
+  version: d4f625455109d88e7f55a999fdb25e208f174802
+testImports: []

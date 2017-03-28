@@ -1,0 +1,27 @@
+{
+    "app_hash": "",
+    "chain_id": "test-chain-gMqn9n",
+    "genesis_time": "0001-01-01T00:00:00.000Z",
+    "validators": [
+      {
+        "amount" : 10,
+        "name" : "machine-1",
+        "pub_key" : [ 1, "4DD9B22D60FBE64FC21FB669421BAFB9032094C24EC896A2F3AC91E0373D651A" ]
+      },
+      {
+        "amount" : 10,
+        "name" : "machine-2",
+        "pub_key" : [ 1, "3BA69DA5A3B5517B86C829A6825929B2D3F1314B52132CA46355035F362BF0A0" ]
+      },
+      {
+        "amount" : 10,
+        "name" : "machine-3",
+        "pub_key" : [ 1, "BFD823F3ACB3F65083D2C38831753A3D2141AE4ACFA45A6ED761C4BAF2D3E9C6" ]
+      },
+      {
+        "amount" : 10,
+        "name" : "machine-4",
+        "pub_key" : [ 1, "CFDEA014570A3FADCA5341CB756AE5503B91B28A09E9015988A18687D4805AA0" ]
+      }
+    ]
+}
