@@ -36,5 +36,4 @@ assumes that data/machine-${id} directories are initialized.
 
 Makefile accepts to env variables: MACHINE_COUNT and DATA_DIR.
 
-Notes: `make start` will expose and bind ports 8545 to 400${id} at this point. Also this
-won't scale more than 99 machines. This limitation is temporary.
+Notes: `make start` will expose and bind ports 8545 to 4000 + ${id}.

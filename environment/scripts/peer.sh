@@ -24,5 +24,5 @@ docker run -d \
   --entrypoint ethermint \
   -v $ABSPATH:/tmroot \
   -e TMROOT=/tmroot/ \
-  -p 400$ID:8545 \
+  -p $((4000+$ID)):8545 \
    $DOCKER_IMAGE --rpc --rpcapi 'personal,eth,net,web3' --rpcaddr '0.0.0.0' --rpccorsdomain '*' --datadir \$TMROOT $SEEDS

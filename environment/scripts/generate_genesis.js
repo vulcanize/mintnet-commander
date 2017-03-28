@@ -8,7 +8,9 @@ const numMachines = parseInt(process.argv[4])
 
 const machineFolder = (i) => `${dataDir}/machine-${i}`
 
-for (let i = 1; i <= numMachines; i++) {
+if (numMachines <= 4) return
+
+for (let i = 5; i <= numMachines; i++) {
   console.log(`Collecting machine-${i}`)
   let privValidatorPubKey = JSON.parse(fs.readFileSync(`${machineFolder(i)}/priv_validator.json`)).pub_key
   let privValidator = {
@@ -21,7 +23,7 @@ for (let i = 1; i <= numMachines; i++) {
 }
 
 for (let i = 1; i <= numMachines; i++) {
-  console.log(`Writing genesis for mach${i}`)
+  console.log(`Writing genesis for machine-${i}`)
   fs.writeFileSync(`${machineFolder(i)}/genesis.json`, JSON.stringify(genesis))
 }
 

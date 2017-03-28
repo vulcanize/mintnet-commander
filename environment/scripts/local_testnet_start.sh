@@ -17,5 +17,7 @@ done
 echo "Seeds: $seeds"
 
 for i in `seq 1 $N`; do
-  bash scripts/peer.sh $DOCKER_IMAGE $NETWORK_NAME $i $seeds
+  bash scripts/peer.sh $DOCKER_IMAGE $NETWORK_NAME $i $seeds &
 done
+
+wait
