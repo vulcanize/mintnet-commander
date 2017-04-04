@@ -21,6 +21,7 @@
     "debug": "^2.6.3",
     "dockerode": "^2.4.3",
     "fs-promise": "^2.0.2",
+    "keythereum": "^0.4.7",
     "netmask": "^1.0.6"
   },
   "devDependencies": {
