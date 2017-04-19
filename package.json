@@ -2,7 +2,9 @@
   "name": "mintnet-commander",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "bin" : {
+    "mintnet-commander" : "./bin/mintnet-commander.js"
+  },
   "scripts": {
     "lint": "./node_modules/standard/bin/cmd.js",
     "test": "echo \"Error: no test specified\" && exit 1"
