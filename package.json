@@ -1,0 +1,35 @@
+{
+  "name": "mintnet-commander",
+  "version": "0.1.0",
+  "description": "",
+  "bin" : {
+    "mintnet-commander" : "./bin/mintnet-commander.js"
+  },
+  "scripts": {
+    "lint": "./node_modules/standard/bin/cmd.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vulcanize/mintnet-commander.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/vulcanize/mintnet-commander/issues"
+  },
+  "homepage": "https://github.com/vulcanize/mintnet-commander#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "debug": "^2.6.3",
+    "dockerode": "^2.4.3",
+    "fs-promise": "^2.0.2",
+    "js-yaml": "^3.8.3",
+    "keythereum": "^0.4.7",
+    "netmask": "^1.0.6"
+  },
+  "devDependencies": {
+    "standard": "^9.0.2"
+  }
+}
