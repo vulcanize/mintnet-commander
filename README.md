@@ -19,7 +19,7 @@ Project assumes that you have installed:
 #### Docker
   `mintnet-commander start` accepts two parameters,
  [configuration file](https://github.com/vulcanize/mintnet-commander/wiki/Configuration-File)
- and networkFile.  
+ and networkFile. Network file mustn't exist, it will be created by mintnet-commander.
    It uses docker for local deployment and goes through several steps:  
    * Creates local network
    * Create local Data directory with machine directories inside (in your file system)
