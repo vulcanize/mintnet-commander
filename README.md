@@ -16,6 +16,7 @@ Project assumes that you have installed:
 ### Usage
   There are two commands available right now, `start` and `stop`.
   
+#### Docker
   `mintnet-commander start` accepts two parameters,
  [configuration file](https://github.com/vulcanize/mintnet-commander/wiki/Configuration-File)
  and networkFile.  
