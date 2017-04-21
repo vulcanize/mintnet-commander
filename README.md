@@ -15,11 +15,23 @@ Project assumes that you have installed:
 
 ### Usage
   There are two commands available right now, `start` and `stop`.
-  To start the network first you need to create
-[configuration file](https://github.com/vulcanize/mintnet-commander/wiki/Configuration-File).  
-  You can start network with `mintnet-commander start -c configFile -n networkFile` command. 
-Config file contains data about network. Network file is generated after you run the network and
-contains information about each node and machine in the network.  
-  Start command creates docker network and runs containers in the network, exposing all ports and
-binding to the local machine. Also it mounts `dataDir` to `serverRoot`s.  
-  To stop the network you need to pass network file only: `mintnet-commander stop -n networkFile`.
+  
+#### Docker
+  `mintnet-commander start` accepts two parameters,
+ [configuration file](https://github.com/vulcanize/mintnet-commander/wiki/Configuration-File)
+ and networkFile. Network file mustn't exist, it will be created by mintnet-commander.
+   It uses docker for local deployment and goes through several steps:  
+   * Creates local network
+   * Create local Data directory with machine directories inside (in your file system)
+   * Runs `setupCommands`(localy right now) against each machine directory. So every command that is run localy should have binary file available localy.
+   * Creates docker containers and mounts local directories to `serverRoot` in the containers.
+   * Runs the executable or docker entrypoint command after container is up.
+   * Generates network file
+  
+  `mintnet-commander stop` requires networkFile to stop the newtork,
+  it will:
+   * stop and remove containers
+   * delete network
+   * delete local directories
+   
+ Network File contains configuration file info and each machine data, that includes Port Mappings and tendermint keys.
