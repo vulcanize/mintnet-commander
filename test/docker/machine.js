@@ -11,6 +11,21 @@ describe('Docker Machine', () => {
   let network, dockerMachine
   let name = 'test-network'
   let imageName = 'tendermint/tendermint:0.9.0'
+  let dockerConfigs = {
+    name: name,
+    id: 0,
+    dir: '/tmp/' + name,
+    image: 'tendermint/tendermint:0.9.0',
+    options: {
+      serverRoot: '/tmp/test',
+      env: [],
+      executable: [{
+        name: 'tendermint',
+        args: [ 'node' ]
+      }],
+      docker: {}
+    }
+  }
 
   before(async () => {
     // will fail if image doesn't exist
@@ -20,21 +35,7 @@ describe('Docker Machine', () => {
       Name: name
     })
 
-    dockerMachine = new DockerMachine(docker, MockNode, {
-      name: name,
-      id: 0,
-      dir: '/tmp/' + name,
-      image: 'tendermint/tendermint:0.9.0',
-      options: {
-        serverRoot: '/tmp/test',
-        env: [],
-        executable: [{
-          name: 'tendermint',
-          args: [ 'node' ]
-        }],
-        docker: {}
-      }
-    })
+    dockerMachine = new DockerMachine(docker, MockNode, dockerConfigs)
   })
 
   it('should create container', async () => {
@@ -53,6 +54,19 @@ describe('Docker Machine', () => {
     let status = await dockerMachine.inspect()
 
     expect(status.State.Status).to.equal('running')
+  })
+
+  it('should initialize already with running container', async () => {
+    let newDockerMachine = new DockerMachine(docker, MockNode, dockerConfigs)
+
+    await newDockerMachine.init({
+      containerId: dockerMachine.container.id
+    })
+
+    let status = await newDockerMachine.inspect()
+
+    expect(status).to.have.property('Id')
+    expect(status).to.have.property('State')
   })
 
   it('should stop running container', async () => {
