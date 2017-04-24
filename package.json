@@ -2,12 +2,12 @@
   "name": "mintnet-commander",
   "version": "0.1.0",
   "description": "",
-  "bin" : {
-    "mintnet-commander" : "./bin/mintnet-commander.js"
+  "bin": {
+    "mintnet-commander": "./bin/mintnet-commander.js"
   },
   "scripts": {
     "lint": "./node_modules/standard/bin/cmd.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,8 @@
     "netmask": "^1.0.6"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
     "standard": "^9.0.2"
   }
 }
