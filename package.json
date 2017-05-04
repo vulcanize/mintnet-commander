@@ -1,7 +1,7 @@
 {
   "name": "mintnet-commander",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.1",
+  "description": "tool to manage, run and test ABCI Applications",
   "bin": {
     "mintnet-commander": "./bin/mintnet-commander.js"
   },
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/vulcanize/mintnet-commander.git"
   },
-  "author": "",
+  "author": "Vulcanize",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/vulcanize/mintnet-commander/issues"
@@ -35,6 +35,6 @@
     "standard": "^9.0.2"
   },
   "engine": {
-    "node" : ">=7.8.0 <8"
+    "node": ">=7.8.0 <8"
   }
 }
